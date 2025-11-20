@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TNE Móvil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/index.js" defer></script>
+  <script src="https://valeskaugarte.github.io/TNE-V/TNE-V/js/index.html" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <main>
+
+    <!-- ============================================ -->
+    <!-- PANTALLA 0: LOGIN -->
+    <!-- ============================================ -->
+    <section id="login" class="pantalla activa">
+      <div class="login-container">
+        <header class="header-tne">
+          <img src="img/juna.jpg" alt="Logo JUNAEB" class="logo-junaeb" />
+          <div class="header-texto">
+            <h2>TNE Móvil</h2>
+            <p>Tarjeta Nacional Estudiantil</p>
+          </div>
+        </header>
+
+        <div class="login-form">
+          <h3>Iniciar Sesión</h3>
+          
+          <div class="form-group">
+            <label for="login-email">Correo electrónico</label>
+            <input type="email" id="login-email" placeholder="tu@email.com" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="login-password">Contraseña</label>
+            <input type="password" id="login-password" placeholder="Tu contraseña" required />
+          </div>
+          
+          <div class="login-options">
+            <div class="remember-me">
+              <input type="checkbox" id="remember" />
+              <label for="remember">Recordarme</label>
+            </div>
+            <a href="#" onclick="mostrarPantalla('recuperar')">¿Olvidaste tu contraseña?</a>
+          </div>
+          
+          <button class="btn-login" onclick="iniciarSesion()">Ingresar</button>
+          
+          <div class="login-register">
+            <p>¿No tienes cuenta? <a href="#" onclick="mostrarPantalla('registro')">Regístrate aquí</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ 
+
+    <!-- ============================================ -->
+    <!-- PANTALLA 0.1: REGISTRO -->
+    <!-- ============================================ -->
+    <section id="registro" class="pantalla">
+      <div class="login-container">
+        <header class="header-tne">
+          <img src="img/juna.jpg" alt="Logo JUNAEB" class="logo-junaeb" />
+          <div class="header-texto">
+            <h2>Crear Cuenta</h2>
+            <p>Tarjeta Nacional Estudiantil</p>
+          </div>
+        </header>
+
+        <div class="login-form">
+          <h3>Registro</h3>
+          
+          <div class="form-group">
+            <label for="reg-nombre">Nombre completo</label>
+            <input type="text" id="reg-nombre" placeholder="Tu nombre completo" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="reg-rut">RUT</label>
+            <input type="text" id="reg-rut" placeholder="12.345.678-9" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="reg-email">Correo electrónico</label>
+            <input type="email" id="reg-email" placeholder="tu@email.com" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="reg-password">Contraseña</label>
+            <input type="password" id="reg-password" placeholder="Mínimo 8 caracteres" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="reg-confirm">Confirmar contraseña</label>
+            <input type="password" id="reg-confirm" placeholder="Repite tu contraseña" required />
+          </div>
+          
+          <div class="checkbox-group">
+            <input type="checkbox" id="reg-terminos" required />
+            <label for="reg-terminos">Acepto los términos y condiciones</label>
+          </div>
+          
+          <button class="btn-login" onclick="registrarUsuario()">Crear Cuenta</button>
+          
+          <div class="login-register">
+            <p>¿Ya tienes cuenta? <a href="#" onclick="mostrarPantalla('login')">Inicia sesión aquí</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PANTALLA 0.2: RECUPERAR CONTRASEÑA -->
+    <!-- ============================================ -->
+    <section id="recuperar" class="pantalla">
+      <div class="login-container">
+        <header class="header-tne">
+          <img src="img/juna.jpg" alt="Logo JUNAEB" class="logo-junaeb" />
+          <div class="header-texto">
+            <h2>Recuperar Contraseña</h2>
+            <p>Tarjeta Nacional Estudiantil</p>
+          </div>
+        </header>
+
+        <div class="login-form">
+          <h3>Recuperar Acceso</h3>
+          <p class="recovery-info">Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.</p>
+          
+          <div class="form-group">
+            <label for="recovery-email">Correo electrónico</label>
+            <input type="email" id="recovery-email" placeholder="tu@email.com" required />
+          </div>
+          
+          <button class="btn-login" onclick="recuperarContrasena()">Enviar Enlace</button>
+          
+          <div class="login-register">
+            <p><a href="#" onclick="mostrarPantalla('login')">Volver al inicio de sesión</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ============================================ -->
+    <!-- PANTALLA 1: INICIO -->
+    <!-- ============================================ -->
+    <section id="inicio" class="pantalla activa">
+      <header class="header-tne">
+        <img src="img/juna.jpg" alt="Logo JUNAEB" class="logo-junaeb" />
+        <div class="header-texto">
+          <h2>TNE Móvil</h2>
+          <p>Tarjeta Nacional Estudiantil</p>
+        </div>
+        <div class="beneficio-check">Beneficio Activo</div>
+      </header>
+
+      <img src="img/TNE.jpg" alt="Tarjeta TNE" class="tne-img" />
+
+   <!-- Bloque QR único -->
+  <div class="qr-box">
+    <img src="img/qr.jpg" alt="QR transporte" class="qr-img" />
+    <div class="qr-info">
+      <div class="usar-transporte">Usar en Transporte</div>
+      <p class="qr-numero">N° 123456789</p>
+    </div>
+  </div>
+
+ <!-- 3 Tarjetas de información -->
+  <div class="info-section">
+    <div class="info-card">
+      <img src="img/saldo.jpg" alt="Tarifa Estudiante" />
+      <div class="saldo-sobre-boton">
+        <span id="saldoBoton">$1.200</span>
+      </div>
+    </div>
+    <div class="info-card" onclick="mostrarPantalla('sucursales')">
+      <img src="img/sucursales.jpg" alt="Sucursales" />
+    </div>
+    <div class="info-card" onclick="mostrarPantalla('carga')">
+      <img src="img/cargar.jpg" alt="Cargar TNE" />
+    </div>
+  </div>
+  <button class="btn-bloqueo" onclick="mostrarPantalla('bloqueo')"> Bloquear Tarjeta Física</button> 
+  
+  <!-- Contactos JUNAEB -->
+  <div class="contactos-junaeb">
+    <h3>Contacto JUNAEB</h3>
+    <div class="contactos-grid">
+      <a href="tel:6003862000" class="contacto-item">
+        <span class="contacto-icon">📞</span>
+        <span class="contacto-texto">Teléfono: 600 386 2000</span>
+      </a>
+      <a href="mailto:contacto@junaeb.cl" class="contacto-item">
+        <span class="contacto-icon">✉️</span>
+        <span class="contacto-texto">Email: contacto@junaeb.cl</span>
+      </a>
+      <a href="https://www.junaeb.cl" target="_blank" class="contacto-item">
+        <span class="contacto-icon">🌐</span>
+        <span class="contacto-texto">Sitio Web: junaeb.cl</span>
+      </a>
+    </div>
+  </div>
+  </section>
+
+
+    <!-- ============================================ -->
+    <!-- PANTALLA 2: SUCURSALES -->
+    <!-- ============================================ -->
+   <section id="sucursales" class="pantalla">
+  <div id="mapa"></div>
+      <div class="lista-sucursales">
+        <h3>Oficinas cercanas</h3>
+        <ul></ul>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PANTALLA 3: CARGA -->
+    <!-- ============================================ -->
+    <section id="carga" class="pantalla">
+      <h2 style="text-align:center; margin-bottom:20px; color:#1f2937;">Cargar Saldo TNE</h2>
+      
+      <div class="saldo-display">
+        <p class="saldo-label">Saldo actual</p>
+        <p class="saldo-actual" id="saldoActual">$1.200</p>
+      </div>
+
+      <div class="monto-input-group">
+        <label for="monto">Monto a cargar (CLP)</label>
+        <input type="number" id="monto" placeholder="Ingrese monto" min="500" step="100" />
+        <p class="texto-ayuda">Monto mínimo: $500</p>
+      </div>
+
+      <h3 style="margin:20px 0 12px 0; color:#374151;">Selecciona tu banco:</h3>
+      
+      <div class="bancos-grid">
+        <button class="btn-banco" onclick="cargarConBanco('BancoEstado')">
+          <span class="banco-nombre">Banco Estado</span>
+        </button>
+        <button class="btn-banco" onclick="cargarConBanco('Santander')">
+          <span class="banco-nombre">Santander</span>
+        </button>
+        <button class="btn-banco" onclick="cargarConBanco('BCI')">
+          <span class="banco-nombre">BCI</span>
+        </button>
+        <button class="btn-banco" onclick="cargarConBanco('Falabella')">
+          <span class="banco-nombre">Falabella</span>
+        </button>
+      </div>
+
+  <div class="historial-cargas">
+    <h3>Últimas cargas</h3>
+    <ul id="historialLista">
+      <li>$1.000 · Banco Estado · 12 Nov 2024</li>
+      <li>$500 · Santander · 5 Nov 2024</li>
+    </ul>
+  </div>
+</section>
+
+
+   <!-- ============================================ -->
+    <!-- PANTALLA 4: BLOQUEO -->
+    <!-- ============================================ -->
+    <section id="bloqueo" class="pantalla">
+  <h2 style="text-align:center; color:#1f2937; margin-bottom:20px;">Bloqueo de Tarjeta Física</h2>
+  
+  <div style="background:#fef3c7; padding:12px; border-radius:8px; margin-bottom:20px; border-left:4px solid #f59e0b;">
+    <strong>Importante:</strong> Al bloquear tu tarjeta física, podrás seguir usando tu tarjeta virtual con el mismo saldo mientras esperas la reposición.
+  </div>
+
+  <div class="datos-tarjeta">
+    <h3>Datos de tu tarjeta</h3>
+    <p><strong>Número de tarjeta:</strong> 123456789</p>
+    <p><strong>RUT:</strong> 12.345.678-9</p>
+    <p><strong>Saldo actual:</strong> $1.200</p>
+  </div>
+
+  <!-- Contador de reposición -->
+  <div class="contador-reposicion">
+    <h3>Tiempo estimado de reposición</h3>
+    <div class="contador-tiempo">
+      <div class="tiempo-item">
+        <span class="tiempo-numero" id="dias">05</span>
+        <span class="tiempo-label">Días</span>
+      </div>
+      <div class="tiempo-item">
+        <span class="tiempo-numero" id="horas">12</span>
+        <span class="tiempo-label">Horas</span>
+      </div>
+      <div class="tiempo-item">
+        <span class="tiempo-numero" id="minutos">45</span>
+        <span class="tiempo-label">Minutos</span>
+      </div>
+    </div>
+    <p class="contador-info">Tu nueva tarjeta física estará lista en aproximadamente 5 días hábiles</p>
+  </div>
+
+  <form id="formBloqueo" class="form-bloqueo">
+    <div class="form-group">
+      <label for="motivo">Motivo del bloqueo *</label>
+      <select id="motivo" required>
+        <option value="">Seleccione un motivo</option>
+        <option value="perdida">Pérdida</option>
+        <option value="robo">Robo</option>
+        <option value="deterioro">Deterioro</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción del incidente *</label>
+      <textarea id="descripcion" rows="3" placeholder="Describe brevemente lo ocurrido" required></textarea>
+    </div>
+
+    <h3 style="margin-top:24px; margin-bottom:12px;">Datos de contacto</h3>
+
+    <div class="form-group">
+      <label for="nombre">Nombre completo *</label>
+      <input type="text" id="nombre" placeholder="Tu nombre completo" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Correo electrónico *</label>
+      <input type="email" id="email" placeholder="tu@email.com" required />
+    </div>
+
+    <div class="form-group">
+      <label for="telefono">Teléfono *</label>
+      <input type="tel" id="telefono" placeholder="+56 9 1234 5678" required />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Contraseña (para confirmar) *</label>
+      <input type="password" id="password" placeholder="Tu contraseña" required />
+    </div>
+
+    <div class="checkbox-group">
+      <input type="checkbox" id="confirmar" required />
+      <label for="confirmar">Confirmo que los datos son correctos y autorizo el bloqueo</label>
+    </div>
+
+    <button type="submit" class="btn-bloquear">Bloquear Tarjeta Física</button>
+  </form>
+
+  <button class="btn-secundario" onclick="mostrarPantalla('inicio')">Volver a Inicio</button>
+</section>
+
+<!-- ============================================ -->
+<!-- PANTALLA 5: SALDO (placeholder) -->
+<!-- ============================================ -->
+    <section id="saldo" class="pantalla">
+      <h2>Tarifa Estudiante</h2>
+      <p>Información sobre tarifas y beneficios estudiantiles.</p>
+    </section>
+  </main>
+
+  <!-- Navegación inferior -->
+  <footer class="bottom-nav">
+    <button onclick="mostrarPantalla('inicio')">Inicio</button>
+    <button onclick="mostrarPantalla('sucursales')">Sucursales</button>
+    <button onclick="mostrarPantalla('carga')">Cargar</button>
+    <button onclick="mostrarPantalla('bloqueo')">Bloqueo</button>
+  </footer>
+</body>
+</html>

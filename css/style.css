@@ -1,0 +1,852 @@
+body {
+  max-width: 414px;
+  margin: 0 auto;
+
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(0,0,0,0.2);
+}
+
+html {
+  background: #1f2937;
+}
+
+#inicio {
+  background-image: url('../img/fondo2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#sucursales {
+  background-image: url('../img/fondosucursales.jpg');
+  background-size: contain;
+  background-position: top center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+#carga {
+  background-image: url('../img/fondocarga.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-top: 200px;
+}
+
+#bloqueo {
+  background-image: url('../img/fondo2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.pantalla { 
+  display:none; 
+  padding:16px;
+  min-height: 100vh;
+}
+.pantalla.activa { display:block; }
+
+.header-tne { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px;  
+  padding: 12px 16px; 
+  margin: -16px -16px 16px -16px; 
+  color: white;
+}
+
+.logo-junaeb { 
+  width: 40px; 
+  height: 40px; 
+}
+
+.header-texto { 
+  flex: 1; 
+}
+
+.header-texto h2 { 
+  font-size: 16px; 
+  margin: 0; 
+  font-weight: 600; 
+}
+
+.header-texto p { 
+  font-size: 11px; 
+  margin: 2px 0 0 0; 
+  opacity: 0.9;
+}
+
+.beneficio-check { 
+  background: #10b981; 
+  padding: 4px 8px; 
+  border-radius: 12px; 
+  font-size: 10px; 
+  white-space: nowrap;
+}
+
+.tne-img { width:100%; max-width:400px; display:block; margin:0 auto 12px; border-radius:8px; }
+
+.qr-box {
+  background: #2563eb; /* azul tipo botón */
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.qr-box:hover {
+  transform: scale(1.02);
+}
+
+.qr-img {
+  width: 48px;
+  height: 48px;
+}
+
+.qr-box p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+.info-section { 
+  display: flex; 
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.info-card { 
+  flex: 1;
+  cursor: pointer;
+}
+
+.info-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+#mapa { 
+  width:100%; 
+  height:150px; 
+  border-radius:12px; 
+  margin-top:150px;
+  position: relative;
+  z-index: 1;
+}
+
+.bottom-nav { position:fixed; bottom:0; left:0; right:0; background:#111827; display:flex; justify-content:space-around; padding:10px; }
+.bottom-nav button { background:none; border:none; color:white; font-size:16px; }
+
+.lista-sucursales { margin-top:16px; 
+margin-top: 16px;
+  position: relative;
+  top: -20px;
+}
+.lista-sucursales h3 { text-align:center; margin-bottom:8px; color:#4f46e5; }
+.lista-sucursales ul { list-style:none; padding:0; margin:0; }
+.lista-sucursales li { 
+  background:#f3f4f6; 
+  padding:8px; 
+  border-radius:6px; 
+  margin-bottom:10px;
+  border-left: 3px solid #8b5cf6;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.sucursal-abierta {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.sucursal-cerrada {
+  color: #ef4444;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  font-size: 28px;
+}
+
+.card-content {
+  flex: 1;
+  text-align: left;
+}
+
+.card-label {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 500;
+}
+
+.card-label-sub {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.card-value {
+  font-size: 20px;
+  color: #111827;
+  margin: 4px 0 0 0;
+  font-weight: 700;
+}
+
+.qr-box {
+  background: #e5e7eb;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.qr-img {
+  width: 115px;
+  height: 115px;
+}
+
+.qr-box p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.qr-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.qr-numero {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.usar-transporte {
+  padding: 6px 14px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  margin-bottom: 8px;
+  box-shadow: 0 3px 8px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.usar-transporte:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(102, 126, 234, 0.5);
+}
+
+.info-bloqueo {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.info-bloqueo p {
+  margin: 8px 0;
+}
+
+.estado-tarjetas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tarjeta-estado {
+  background: #f9fafb;
+  padding: 14px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 2px solid #e5e7eb;
+}
+
+.icono-tarjeta {
+  font-size: 32px;
+}
+
+.tipo-tarjeta {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+}
+
+.numero-tarjeta {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.estado-activo {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.estado-bloqueado {
+  color: #ef4444;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.saldo-compartido {
+  background: #dbeafe;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.saldo-compartido strong {
+  font-size: 18px;
+  color: #1e40af;
+}
+
+.opciones-bloqueo {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 20px 0;
+}
+
+.opciones-bloqueo li {
+  background: #f3f4f6;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.btn-bloquear {
+  width: 100%;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.btn-bloquear:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+.btn-secundario {
+  width: 100%;
+  background: #f3f4f6;
+  color: #374151;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secundario:hover {
+  background: #e5e7eb;
+}
+
+#sucursales {
+  background-image: url('../img/fondosucursales.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.lista-sucursales {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.btn-bloqueo {
+  width: 100%;
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.saldo-display {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 14px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.saldo-label {
+  font-size: 13px;
+  margin: 0 0 8px 0;
+  opacity: 0.9;
+}
+
+.saldo-actual {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.monto-input-group {
+  margin-bottom: 20px;
+}
+
+.monto-input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.monto-input-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.texto-ayuda {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 4px 0 0 0;
+}
+
+.bancos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.btn-banco {
+  background: white;
+  border: 2px solid #e5e7eb;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-banco:hover {
+  border-color: #8b5cf6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.banco-nombre {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.historial-cargas {
+  background: #f9fafb;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.historial-cargas h3 {
+  font-size: 15px;
+  margin: 0 0 12px 0;
+  color: #374151;
+}
+
+.historial-cargas ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.historial-cargas li {
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.saldo-inicio {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.saldo-inicio strong {
+  color: #8b5cf6;
+  font-size: 16px;
+}
+
+.info-card { 
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+}
+
+.info-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.saldo-sobre-boton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #8b5cf6;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.datos-tarjeta {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.datos-tarjeta h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.datos-tarjeta p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+.form-bloqueo {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+}
+
+.checkbox-group label {
+  font-size: 13px;
+  color: #374151;
+}
+
+/* ============================================ */
+/* ESTILOS PARA LOGIN Y NUEVAS SECCIONES */
+/* ============================================ */
+
+/* Login Container */
+.login-container {
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-form {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  flex: 1;
+}
+
+.login-form h3 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #1f2937;
+  font-size: 22px;
+}
+
+.btn-login {
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.remember-me label {
+  margin: 0;
+  font-size: 14px;
+}
+
+.login-options a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.login-options a:hover {
+  text-decoration: underline;
+}
+
+.login-register {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.login-register a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register a:hover {
+  text-decoration: underline;
+}
+
+.recovery-info {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.btn-logout {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Contactos JUNAEB */
+.contactos-junaeb {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.contactos-junaeb h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #1f2937;
+  text-align: center;
+}
+
+.contactos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contacto-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #374151;
+  transition: all 0.3s ease;
+}
+
+.contacto-item:hover {
+  background: #e0e7ff;
+  transform: translateX(5px);
+}
+
+.contacto-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.contacto-texto {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Contador de Reposición */
+.contador-reposicion {
+  background: white;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.contador-reposicion h3 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.contador-tiempo {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.tiempo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tiempo-numero {
+  font-size: 28px;
+  font-weight: 700;
+  color: #8b5cf6;
+  background: #f3f4f6;
+  padding: 8px 12px;
+  border-radius: 8px;
+  min-width: 60px;
+}
+
+.tiempo-label {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.contador-info {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0;
+  font-style: italic;
+}
