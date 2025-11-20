@@ -11,13 +11,13 @@ html {
 }
 
 #inicio {
-  background-image: url('../img/fondo2.jpg');
+  background-image: url('https://pbs.twimg.com/media/G6LW0gIXIAAAClc?format=jpg&name=small');
   background-size: cover;
   background-position: center;
 }
 
 #sucursales {
-  background-image: url('../img/fondosucursales.jpg');
+  background-image: url('https://pbs.twimg.com/media/G6LW7PuXcAA1we8?format=jpg&name=medium');
   background-size: contain;
   background-position: top center;
   background-attachment: fixed;
@@ -25,14 +25,14 @@ html {
 }
 
 #carga {
-  background-image: url('../img/fondocarga.jpg');
+  background-image: url('https://pbs.twimg.com/media/G6LW23IXUAA8t-D?format=jpg&name=small');
   background-size: cover;
   background-position: center;
   padding-top: 200px;
 }
 
 #bloqueo {
-  background-image: url('../img/fondo2.jpg');
+  background-image: url('https://pbs.twimg.com/media/G6LW0gIXIAAAClc?format=jpg&name=small');
   background-size: cover;
   background-position: center;
 }
@@ -392,7 +392,7 @@ margin-top: 16px;
 }
 
 #sucursales {
-  background-image: url('../img/fondosucursales.jpg');
+  background-image: url('https://pbs.twimg.com/media/G6LW7PuXcAA1we8?format=jpg&name=medium');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
